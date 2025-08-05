@@ -25,23 +25,24 @@ def format_face(face):
     else:
         return str(face)
 
-# ฟังก์ชันวาดลูกเต๋า
+# ฟังก์ชันลูกเต๋า
 def draw_dice(face, color):
-    fig, ax = plt.subplots(figsize=(0.5, 0.5),dpi=200)
+    fig, ax = plt.subplots(figsize=(0.8, 0.8), dpi=200)  # เล็กลง + ชัดขึ้น
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis("off")
-    
+
     rect = patches.FancyBboxPatch((0.1, 0.1), 0.8, 0.8,
                                    boxstyle="round,pad=0.1",
                                    edgecolor="black",
                                    facecolor=color,
-                                   linewidth=2)
+                                   linewidth=1.5)
     ax.add_patch(rect)
     ax.text(0.5, 0.5, format_face(face),
-            fontsize=10, ha="center", va="center", color="black")
-    
+            fontsize=12, ha="center", va="center", color="black", fontweight='bold')
+
     return fig
+
 
 # UI
 st.set_page_config(page_title="ทอยลูกเต๋าทีละลูก", layout="centered")
@@ -69,6 +70,7 @@ if st.session_state.history:
 
 else:
     st.info("ทอยลูกเต๋า")
+
 
 
 
