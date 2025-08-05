@@ -48,7 +48,7 @@ def draw_dice(face, color):
 # UI
 st.set_page_config(page_title="ทอยลูกเต๋า", layout="centered")
 st.title("🎲 ความผันผวนของหุ้น")
-st.markdown("🎯 ราคาหุ้นปัจจุบัน: **แทงเสียๆๆๆ**")
+st.markdown("🎯 ราคาหุ้นปัจจุบัน: **แทงเสียๆๆๆเด้อ**")
 
 # ปุ่มทอยลูกเต๋า
 with st.form(key="roll_form"):
@@ -63,13 +63,14 @@ with st.form(key="roll_form"):
 # แสดงผลลูกเต๋า
 if st.session_state.history:
     name, face, color = st.session_state.history[-1]
-    st.subheader(f"🎯 ความผันผวน: {name}")
-    st.image(draw_dice(face, color), width=90)
+    st.subheader(f"🎯 {name} 🎯")
+    st.image(draw_dice(face, color), width=120)
 
     with st.expander("📜 ประวัติการทอยทั้งหมด", expanded=True):
         for idx, (n, f, c) in enumerate(reversed(st.session_state.history), 1):
             st.markdown(f"{idx}. **{n}**: `{format_face(f)}`")
 else:
     st.info("กดปุ่มด้านบนเพื่อเริ่มทอยลูกเต๋า")
+
 
 
