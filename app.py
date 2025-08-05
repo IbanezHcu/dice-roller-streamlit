@@ -39,7 +39,7 @@ def draw_dice(face, color):
                                    linewidth=2)
     ax.add_patch(rect)
     ax.text(0.5, 0.5, format_face(face),
-            fontsize=24, ha="center", va="center", color="black")
+            fontsize=16, ha="center", va="center", color="black")
     
     return fig
 
@@ -69,4 +69,5 @@ if st.session_state.history:
 
 else:
     st.info("ทอยลูกเต๋า")
+
 
